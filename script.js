@@ -29,6 +29,10 @@ function calculateFee() {
   const stops = Math.max(1, parseInt(stopsInput.value, 10) || 1);
   const tip = Math.max(0, parseFloat(tipInput.value) || 0);
 
+  outsideBaseInput.value = outsideBase.toFixed(2);
+  stopsInput.value = stops;
+  tipInput.value = tip.toFixed(2);
+
   const additionalStops = Math.max(0, stops - 1);
   const additionalStopFee = additionalStops * 2;
 
