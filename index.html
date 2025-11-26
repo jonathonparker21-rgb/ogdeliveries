@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OG Deliveries | Oak Grove, LA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-text">OG Deliveries</div>
+    <div class="header-contact">
+      Serving Oak Grove, LA & surrounding towns • Call <a href="tel:13184175965">318-417-5965</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Local & flexible</p>
+        <h1>Fast deliveries from your favorite spots in Oak Grove, LA.</h1>
+        <p class="lead">
+          Tell us where to pick up, share your order and codes from the restaurant or shop, and we will bring it to your door.
+          Food, flowers, auto parts—if it fits in the car, we can deliver it.
+        </p>
+        <div class="cta-row">
+          <a class="cta" href="tel:13184175965">Call 318-417-5965</a>
+          <div class="hours">Everyday delivery • Fair pricing</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>How it works</h2>
+        <ol>
+          <li>Place your order with the restaurant or store (or use their app).</li>
+          <li>Share pickup details, order codes, and your contact info.</li>
+          <li>We deliver to your address—tips welcome!</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="services">
+      <h2>What we deliver</h2>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Restaurant Orders</h3>
+          <p>Pickup from any local spot. Use the restaurant’s app or call-in order and share your order code.</p>
+        </article>
+        <article class="service-card">
+          <h3>Groceries & Essentials</h3>
+          <p>Quick trips for pantry items, pharmacy needs, or anything that fits comfortably in the car.</p>
+        </article>
+        <article class="service-card">
+          <h3>Flowers & Gifts</h3>
+          <p>Send surprises on time. We keep arrangements secure during the ride.</p>
+        </article>
+        <article class="service-card">
+          <h3>Auto Parts & More</h3>
+          <p>We also handle parts, tools, and other errands around Oak Grove.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="estimator" id="estimator">
+      <div class="estimator-header">
+        <div>
+          <p class="eyebrow">Transparent pricing</p>
+          <h2>Delivery fee estimator</h2>
+          <p class="muted">Base fee inside Oak Grove is $7. Enter the delivery address and we will detect if it is in town; out-of-town trips use a custom base fee you can adjust. Additional stops are $2 each.</p>
+        </div>
+        <a class="cta secondary" href="tel:13184175965">Need help? Call us</a>
+      </div>
+
+      <div class="card">
+        <form class="estimate-form" id="deliveryForm" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" id="customerName" name="customerName" placeholder="Your full name" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span>Phone number</span>
+              <input type="tel" id="phone" name="phone" placeholder="318-417-5965" autocomplete="tel" />
+            </label>
+            <label class="field full">
+              <span>Delivery address</span>
+              <input type="text" id="address" name="address" placeholder="Street, city, and ZIP" autocomplete="street-address" />
+            </label>
+            <label class="field full">
+              <span>Pickup location & order code</span>
+              <textarea id="orderCode" name="orderCode" rows="2" placeholder="Restaurant or store name, order code, pickup instructions"></textarea>
+            </label>
+          </div>
+
+          <div class="options-row">
+            <div class="field status" id="areaStatus">
+              <span>Area detection</span>
+              <p class="muted small">We use your address to detect if you are inside Oak Grove (zip 71263). If not, we will use the out-of-town base fee below.</p>
+            </div>
+            <label class="field compact">
+              <span>Out-of-town base fee ($)</span>
+              <input type="number" id="outsideBase" name="outsideBase" min="7" step="0.5" value="12" />
+            </label>
+            <label class="field compact">
+              <span>Stops (total)</span>
+              <input type="number" id="stops" name="stops" min="1" step="1" value="1" />
+            </label>
+            <label class="field compact">
+              <span>Tip ($)</span>
+              <input type="number" id="tip" name="tip" min="0" step="1" value="0" />
+            </label>
+          </div>
+
+          <div class="result" id="result">
+            <div class="result-line">
+              <span>Base delivery fee</span>
+              <strong id="baseFee">$7.00</strong>
+            </div>
+            <div class="result-line">
+              <span>Additional stops</span>
+              <strong id="stopsFee">$0.00</strong>
+            </div>
+            <div class="result-line">
+              <span>Tip</span>
+              <strong id="tipTotal">$0.00</strong>
+            </div>
+            <div class="result-total">
+              <span>Estimated total</span>
+              <strong id="total">$7.00</strong>
+            </div>
+            <p class="muted small">Area detection uses city or ZIP (71263) in your address to apply the $7 Oak Grove rate; otherwise we use the out-of-town base you set. Final total confirmed when we book your delivery.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="payment">
+      <div>
+        <p class="eyebrow">Easy checkout</p>
+        <h2>Pay your way</h2>
+        <p class="muted">We accept card payments via Square as well as Venmo, Cash App, and Apple Pay. Tips are always appreciated and can be added when you book.</p>
+      </div>
+      <div class="payment-options">
+        <span class="pill">Square (credit/debit)</span>
+        <span class="pill">Venmo</span>
+        <span class="pill">Cash App</span>
+        <span class="pill">Apple Pay</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <div class="logo-text">OG Deliveries</div>
+      <p>Local delivery from Oak Grove, LA. Food, flowers, auto parts, and more.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:13184175965">Call 318-417-5965</a>
+      <span>|</span>
+      <a href="#estimator">Estimate a delivery</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
