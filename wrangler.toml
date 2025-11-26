@@ -1,4 +1,5 @@
 name = "ogdeliveries"
+main = "workers-site/index.js"
 pages_build_output_dir = "."
 
 [site]
