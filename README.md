@@ -3,7 +3,7 @@ OG Deliveries website
 
 ## Deploying to Cloudflare Pages
 
-This project is a static site. The included `wrangler.toml` points Cloudflare Pages to the current directory for its assets, so you can deploy with either of the following **supported** commands:
+This project is a static site. The included `wrangler.toml` points Cloudflare Pages to the current directory for its assets (via a `[site]` bucket), so you can deploy with either of the following **supported** commands:
 
 ```sh
 # Deploy to Cloudflare Pages (default npm run deploy)
@@ -14,6 +14,10 @@ npm run deploy:pages
 ```
 
 If you prefer the Pages dashboard, create a new project, select this repository, set the build output directory to `.`, and use `npm run deploy` (or `wrangler pages deploy .`) for the deployment command. This avoids the deprecated `wrangler versions upload` workflow entirely.
+
+### If you see `Missing entry-point to Worker script or to assets directory`
+
+This appears when a deploy command (for example `wrangler deploy`) does not see either a Worker entry file (`main`) or a static assets bucket. The `wrangler.toml` here declares a `[site]` bucket of `.` so static assets are always available. Make sure you are deploying from the repository root and using one of the supported commands above so Wrangler picks up the bucket path.
 
 ### If you see `Workers Sites does not support uploading versions through wrangler versions upload`
 
