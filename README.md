@@ -3,25 +3,21 @@ OG Deliveries website
 
 ## Deploying to Cloudflare Pages
 
-This project is a static site. The included `wrangler.toml` points Pages to the current directory for its assets and defines the worker entrypoint via `main = "./workers-site/index.js"`, so you can deploy with:
+This project is a static site. The included `wrangler.toml` points Pages to the current directory for its assets and defines the worker entrypoint via `main = "./workers-site/index.js"`, so you can deploy with either of the following **supported** commands:
 
 ```sh
-wrangler pages deploy .
+# Deploy the Worker-backed static site
+npm run deploy:worker
+
+# Deploy to Cloudflare Pages with the same assets bucket (default npm run deploy)
+npm run deploy
 ```
 
-If you prefer the Pages dashboard, create a new project, select this repository, and set the build output directory to `.`. Either method avoids the "Missing entry-point to Worker script or to assets directory" error by giving Pages a clear assets path.
+If you prefer the Pages dashboard, create a new project, select this repository, set the build output directory to `.`, and use `npm run deploy` (or `wrangler pages deploy .`) for the deployment command. Either method avoids the "Missing entry-point to Worker script or to assets directory" error by giving Pages a clear assets path.
 
 ### If you see `Workers Sites does not support uploading versions through wrangler versions upload`
 
-That error appears when using the `wrangler versions upload` command, which is not supported for Workers Sites. Use the standard deploy command instead:
-
-```sh
-# Deploy using the worker entry in wrangler.toml
-wrangler deploy
-
-# Or deploy to Pages with the same assets bucket
-wrangler pages deploy .
-```
+That error appears when using the deprecated `wrangler versions upload` command, which is not supported for Workers Sites. Switch to one of the supported deploy commands above instead of `wrangler versions upload`.
 
 These commands bundle the static assets and worker entrypoint correctly, bypassing the `wrangler versions upload` limitation.
 

@@ -1,0 +1,14 @@
+{
+  "name": "ogdeliveries",
+  "version": "1.0.0",
+  "description": "OG Deliveries website",
+  "type": "module",
+  "scripts": {
+    "deploy:worker": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy .",
+    "deploy": "npm run deploy:pages"
+  },
+  "devDependencies": {
+    "wrangler": "^4.50.0"
+  }
+}
