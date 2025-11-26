@@ -4,7 +4,6 @@
   "description": "OG Deliveries website",
   "type": "module",
   "scripts": {
-    "deploy:worker": "wrangler deploy",
     "deploy:pages": "wrangler pages deploy .",
     "deploy": "npm run deploy:pages"
   },
