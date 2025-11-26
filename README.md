@@ -3,7 +3,7 @@ OG Deliveries website
 
 ## Deploying to Cloudflare Pages
 
-This project is a static site. The included `wrangler.toml` points Pages to the current directory for its assets, so you can deploy with:
+This project is a static site. The included `wrangler.toml` points Pages to the current directory for its assets and explicitly sets the worker entrypoint to `./workers-site/index.js`, so you can deploy with:
 
 ```sh
 wrangler pages deploy .

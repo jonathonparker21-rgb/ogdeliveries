@@ -1,6 +1,8 @@
 name = "ogdeliveries"
-main = "workers-site/index.js"
+main = "./workers-site/index.js"
+compatibility_date = "2024-05-01"
 pages_build_output_dir = "."
 
 [site]
- bucket = "."
+bucket = "."
+entry-point = "workers-site"
