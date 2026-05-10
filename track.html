@@ -5,86 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Track Order - OG Deliveries</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body class="bg-gray-50">
 
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <i class="fa-solid fa-truck text-3xl text-green-600"></i>
+        <i class="fa-solid fa-car text-3xl text-green-600"></i>
         <h1 class="text-2xl font-bold">OG Deliveries</h1>
       </div>
-      <div class="hidden md:flex space-x-8 text-gray-700">
+      <div class="space-x-8">
         <a href="index.html">Home</a>
-        <a href="order.html">Place Order</a>
-        <a href="track.html" class="text-green-600 font-medium">Track Order</a>
+        <a href="order.html">Order</a>
+        <a href="track.html" class="text-green-600 font-medium">Track</a>
       </div>
     </div>
   </nav>
 
-  <div class="max-w-3xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold text-center mb-8">Track Your Delivery</h2>
+  <div class="max-w-2xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-center mb-10">Track Your Delivery</h2>
+    <div class="bg-white rounded-3xl shadow-xl p-10">
+      <input type="text" id="trackingInput" placeholder="Enter tracking number" class="w-full border border-gray-300 rounded-2xl px-6 py-5 text-lg">
+      <button onclick="trackOrder()" class="mt-6 w-full bg-green-600 text-white py-6 rounded-2xl text-xl font-semibold">Track Order</button>
 
-    <div class="bg-white shadow-2xl rounded-3xl p-10">
-      <div id="tracker" class="hidden">
-        <div class="flex justify-between items-center mb-10 text-sm">
-          <div class="text-center">
-            <div class="w-8 h-8 mx-auto bg-green-600 rounded-full flex items-center justify-center text-white">1</div>
-            <p class="mt-2 font-medium">Ordered</p>
+      <div id="trackingResult" class="hidden mt-10">
+        <div class="space-y-6">
+          <div class="flex justify-between">
+            <span>Status:</span>
+            <span class="font-semibold text-green-600">Out for Delivery</span>
           </div>
-          <div class="text-center">
-            <div id="step2" class="w-8 h-8 mx-auto bg-gray-300 rounded-full flex items-center justify-center">2</div>
-            <p class="mt-2 font-medium text-gray-400">Picked Up</p>
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-green-600 rounded-full w-3/4"></div>
           </div>
-          <div class="text-center">
-            <div id="step3" class="w-8 h-8 mx-auto bg-gray-300 rounded-full flex items-center justify-center">3</div>
-            <p class="mt-2 font-medium text-gray-400">In Transit</p>
-          </div>
-          <div class="text-center">
-            <div id="step4" class="w-8 h-8 mx-auto bg-gray-300 rounded-full flex items-center justify-center">4</div>
-            <p class="mt-2 font-medium text-gray-400">Delivered</p>
-          </div>
-        </div>
-
-        <div id="status" class="text-center py-8 border-t border-b">
-          <p class="text-2xl font-semibold text-green-600">Your order is on the way!</p>
-          <p id="statusText" class="text-gray-600 mt-2">Driver has been assigned</p>
-        </div>
-
-        <div class="mt-8 text-center">
-          <p class="text-sm text-gray-500">Tracking Number: <span id="trackingNum" class="font-mono font-bold"></span></p>
-        </div>
-      </div>
-
-      <div id="searchForm">
-        <label class="block text-sm font-medium mb-3">Enter your tracking number</label>
-        <div class="flex gap-3">
-          <input type="text" id="trackingInput" placeholder="e.g. OG123456" class="flex-1 border border-gray-300 rounded-2xl px-6 py-4 focus:outline-none focus:border-green-500">
-          <button onclick="searchTracking()" class="bg-green-600 hover:bg-green-700 text-white px-10 rounded-2xl font-semibold">Track</button>
+          <p>Your Green Kia Soul driver is on the way. Expected arrival: 25 minutes.</p>
+          <p class="text-sm text-gray-500">Call driver: (318) 417-5750</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    function searchTracking() {
-      const input = document.getElementById('trackingInput').value.trim();
-      if (!input) return alert("Please enter a tracking number");
-      
-      document.getElementById('searchForm').classList.add('hidden');
-      document.getElementById('tracker').classList.remove('hidden');
-      document.getElementById('trackingNum').textContent = input;
-    }
-
-    // Auto-track if coming from order form
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const tracking = urlParams.get('tracking');
-      if (tracking) {
-        document.getElementById('trackingInput').value = tracking;
-        searchTracking();
-      }
+    function trackOrder() {
+      document.getElementById('trackingResult').classList.remove('hidden');
     }
   </script>
 </body>
