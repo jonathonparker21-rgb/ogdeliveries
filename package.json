@@ -1,25 +1,13 @@
 {
   "name": "ogdeliveries",
   "version": "1.0.0",
-  "description": "OG Deliveries content site with clear ad slots and policy pages",
-  "private": true,
+  "description": "OG Deliveries website",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "next": "14.2.4",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "deploy:pages": "wrangler pages deploy .",
+    "deploy": "npm run deploy:pages"
   },
   "devDependencies": {
-    "@types/node": "22.8.5",
-    "@types/react": "18.3.11",
-    "eslint": "8.57.1",
-    "eslint-config-next": "14.2.4",
-    "typescript": "5.6.3"
+    "wrangler": "^4.50.0"
   }
 }
