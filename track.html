@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order - OG Deliveries</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-car text-3xl text-green-600"></i>
+        <h1 class="text-2xl font-bold">OG Deliveries</h1>
+      </div>
+      <div class="space-x-8">
+        <a href="index.html">Home</a>
+        <a href="order.html">Order</a>
+        <a href="track.html" class="text-green-600 font-medium">Track</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-2xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-center mb-10">Track Your Delivery</h2>
+    <div class="bg-white rounded-3xl shadow-xl p-10">
+      <input type="text" id="trackingInput" placeholder="Enter tracking number" class="w-full border border-gray-300 rounded-2xl px-6 py-5 text-lg">
+      <button onclick="trackOrder()" class="mt-6 w-full bg-green-600 text-white py-6 rounded-2xl text-xl font-semibold">Track Order</button>
+
+      <div id="trackingResult" class="hidden mt-10">
+        <div class="space-y-6">
+          <div class="flex justify-between">
+            <span>Status:</span>
+            <span class="font-semibold text-green-600">Out for Delivery</span>
+          </div>
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-green-600 rounded-full w-3/4"></div>
+          </div>
+          <p>Your Green Kia Soul driver is on the way. Expected arrival: 25 minutes.</p>
+          <p class="text-sm text-gray-500">Call driver: (318) 417-5750</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function trackOrder() {
+      document.getElementById('trackingResult').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
